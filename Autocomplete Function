@@ -1,0 +1,15 @@
+def autocompfunc(key, wordlist):
+    # check and correct key
+    chkkey = filter(lambda x: x.isalpha(), key)
+    # check and correct wordlist
+    chkwordlist = []
+    for i in wordlist:
+        word = filter(lambda x: x.isalpha(), i)
+        chkwordlist.append(word)
+    # main autocomplete
+    l1 = len(chkkey)
+    result = []
+    for i in chkwordlist:
+        if i[:l1].lower() == chkkey.lower():
+            result.append(i)
+    return result[:5]
